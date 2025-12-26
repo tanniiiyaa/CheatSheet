@@ -162,16 +162,19 @@ Local Repository (.git)
    ↓ git push
 Remote Repository (GitHub)
 
-git init              # new repo
-git clone <url>       # existing repo
-code app.js           # amke changes 
-git status            # check the status
-git add app.js or git add .     # Moves changes to Staging Area
-git commit -m "Add login functionality"  # Creates a snapshot and Saves to Local Repository
-git push origin main    # Sends commits to Remote Repository
-git pull origin main    # get latest changes from others
+$ git init              # new repo
+$ git clone <url>       # existing repo
+$ code app.js           # amke changes 
+$ git status            # check the status
+$ git add app.js or git add .     # Moves changes to Staging Area
+$ git commit -m "Add login functionality"  # Creates a snapshot and Saves to Local Repository
+$ git push origin main    # Sends commits to Remote Repository
+$ git pull origin main    # get latest changes from others
 
+ls - la : shows the hidden file that is .git (hidden file that is responsible for activites, changes, commits, updates)
 
+> Git Commit : command in git that captues a snapshot of the project's currently staged cahnges, creating a permanent record in the repo's history.
 
-
+$ git diff  (shows the difference between the present and previous past files, Shows differences between versions)
+$ git log   (shows commit history
 
