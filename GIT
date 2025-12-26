@@ -66,6 +66,7 @@ works offline.
 
 + Remote Repository : A remote repository is a Git repository stored on a server (like GitHub, GitLab, Bitbucket).
 Exists on the cloud/server.
+Refers to a version of your project that resides on a network or a hosted repo on the internet
 Used for Backup and Collaboration.
 Accessed via internet
 Common remote name : origin
@@ -171,10 +172,58 @@ $ git commit -m "Add login functionality"  # Creates a snapshot and Saves to Loc
 $ git push origin main    # Sends commits to Remote Repository
 $ git pull origin main    # get latest changes from others
 
-ls - la : shows the hidden file that is .git (hidden file that is responsible for activites, changes, commits, updates)
+ls - la : shows the hidden file that is .git (hidden file that is responsible foractivites, changes, commits, updates)
 
 > Git Commit : command in git that captues a snapshot of the project's currently staged cahnges, creating a permanent record in the repo's history.
 
 $ git diff  (shows the difference between the present and previous past files, Shows differences between versions)
-$ git log   (shows commit history
+$ git log   (shows commit history)
 
+> To check pervious versions, we need commit ID, for that so use git log
+then we use $ git show <commit id> : <file_name>
+
+> $ git checkout <commit-id> : you are moving your project to an old commit to see how the code looked at that time.
+ 
+> $ git checkout main : move from one branch to another
+  $ git checkout dev
+  $ git checkout -b branch-name  : create + switch
+  $ git checkout -- file  : undo file changes
+
+> Negative Cases
+If we made any change by mistake and save it
+
+1) Case1: To undo changes, get the last successful change 
+$ git restore . or filename (. mean all files)
+
+2) Case2: If we added the changes using git add then..
+$ git restore --staged <file_path> # To unstage
+$ git restore <file_path> # To discard changes in the working directory
+
+3) Case3: Added changes to staging area (didn't commit) after this added more changes to file
+//To get the staged changes
+$ git restore --worktree index.html
+
+4) Case4: How about if we did commit also wrong files
+$ git reset --soft HEAD^ (uncommit and keep the changes)
+$ git reset --hard HEAD^ (uncommit and discard the changes)
+
+> Useful Log Options 
+git log -p -2   (last two commit with diff) (patch)
+git log --stat (summary of changes)
+git log --pretty=oneline
+git log --pretty=format:"%h - %an, %ar : %s"  (h : commit hash / an :author name / ar : author date relative / s : subject)
+git log -S function_name ( suppose to find V4 string)
+git log --grep="fix bug"  (search commit msg)
+git log --since="2024-01-01"
+git log --until="2024-01-01"
+git log --author="vexana"
+git log --no-merges
+
+> git remote -v (verbose : show full details)
+Where is my code going when I push, and where does it come from when I pull?
+view the remote repositories connected to your local Git repository.
+output to this is origin  https://github.com/user/myrepo.git (fetch)
+                  origin  https://github.com/user/myrepo.git (push)
+- fetch : used when you download code -- Get updates FROM gitHub to my laptop
+- push : used when you upload the code -- Send my commits FROM laptop to GitHub
+- origin : default name of the remote
