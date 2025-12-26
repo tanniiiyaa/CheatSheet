@@ -227,3 +227,123 @@ output to this is origin  https://github.com/user/myrepo.git (fetch)
 - fetch : used when you download code -- Get updates FROM gitHub to my laptop
 - push : used when you upload the code -- Send my commits FROM laptop to GitHub
 - origin : default name of the remote
+
+> Git Branching
+A branch in Git is a separate line of development.
+It allows developers to work on new features or fixes without affecting the main codebase.
+A branch is just a pointer to a commit
+
+> Why Branching is used?
+Parallel development
+Feature development
+Bug fixing
+Safe experimentation
+Team collaboration
+
+> Default branch : main (contains stable production-ready code
+
+> How Branching Works Internally?
+git branch                  # list branches
+git branch feature-login    # create branch
+git checkout feature-login  # switch branch
+git checkout -b feature-login  # create + switch
+git switch -c feature-login    # modern way
+
+Note : ❌ Git does NOT store differences ❌ Git does NOT copy folders for branches
+✅ Git stores snapshots of your project ✅ Each snapshot is a commit object
+
+> Head : special pointer
+it points to the current branch, commits are added where HEAD points
+
+> Git Merging
+Merging is the process of combining changes from one branch into another.
+$ git checkout main
+$ git merge feature-login   # This brings changes from feature-login into main.
+
+> Git Merge Conflicts
+A merge conflict occurs when Git is unable to automatically merge changes from two branches because the same part of a file was modified differently.
+
+> Why Merge Conflicts Occur
+Merge conflicts happen when:
+Same file is modified
+Same lines are edited
+Changes are incompatible
+
+Common causes:
+Two developers edit the same line
+One branch deletes a file while another modifies it
+File renamed differently in two branches
+
+> Steps to Resolve a Merge Conflict 
+1) Run git status to identify conflicted files
+2) Open conflicted file
+3) Decide which changes to keep
+4) Remove conflict markers
+5) Save the file
+6) Stage the file using git add
+7) Complete merge using git commit
+
+> git merge --abort  : To cancel the merge
+
+> How Git Compares
+Git looks at the Base version of the file.
+Git checks what changed in our branch compared to Base.
+Git checks what changed in their branch compared to Base.
+If the changes are in different lines, Git auto-merges successfully.
+If the changes are on the same line, Git cannot decide → merge conflict.
+
+> Git Forking
+Forking is creating a personal copy of someone else’s repository on your GitHub account.
+Allows you to make changes without affecting the original repo.
+
+> Why Fork?
+Contribute to open-source projects
+Experiment safely
+Work independently without affecting main repo
+
+> Git Pull Request (PR)
+A Pull Request (PR) is a request to merge your changes from your branch/fork into someone else’s repository.
+
+> Pull Request Workflow
+Fork the original repo → create feature branch → push changes
+Go to original repository → Click New Pull Request
+Select your branch/fork and the target branch (usually main or develop)
+Add title, description, screenshots, etc.
+Submit PR → reviewers can comment, request changes, or approve
+Once approved → merge into original repo
+
+> Fork → personal copy of someone else’s repo
+Pull Request → request to merge your changes back into the original repo
+
+> What is .gitignore?
+.gitignore is a text file that tells Git which files or directories to ignore when committing to the repository.
+Prevents unnecessary or sensitive files from being tracked.
+  
+> Why Use .gitignore?
+Avoid committing:
+Log files (*.log)
+Build directories (/build/, /dist/)
+Dependency folders (node_modules/, vendor/)
+Secrets / credentials (.env)
+IDE-specific files (.vscode/, .idea/)
+
+> git config --global core.excludesfile ~/.gitignore_global  # For files you always want to ignore, Global .gitignore
+
+> git clean
+git clean is a Git command used to remove untracked files and directories from your working directory.
+Cleans up files not tracked by Git
+git status
+git clean -n   #see untracked files
+git clean -fd  #delete them
+
+> Git Tagging
+To create annotated tags : git tag -a v1.0 -m “My version 1.0”
+To show tags data : git show v1.0
+To tag old commit in case you forgot : git tag -a v1.2 <commit_no>
+To delete a tag : git tag -d <tag_no>
+Tags created remain local, to move it to remote:
+git push origin v1.5
+git push origin --tags (For all tags together)
+
+
+
