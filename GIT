@@ -1,0 +1,177 @@
+> What is Git?
+Git is a distributed version control system (vcs)
+Git is a tool that helps multiple people work on the same code project or documents by tracking and managing changes to the files.
+
+> Why is Git Used?
+1) Track Changes 
+Keeps a full history of file changes.
+you can see who changed what and when.
+you can revert to older versions if something break.
+
+2) Collaborate with Teams
+Multiple people can work on the same project.
+Each developer has their own local copy.
+Prevents overwriting each other's work.
+
+3) Version Control
+Every stable version can be saved using commits
+Each rollback to a previous working version
+
+4) Branching and Merging
+Create branches for new features, bug fixes and experiments
+Merge changes safely into main code
+
+5) Backup and Safety
+Code is stored locally and remotely
+No single point of failure
+
+> What is GitHub?
+cloud-based platorm that hosts Git repositories and helps developers store, manage, share and collaborate on code.
+Wen based
+Hosts and shares code
+
+> Where GitHub is used?
+1) Open source projects
+2) Team software development
+3) DevOps pipelines
+4) Personal Portfolios
+
+> What is VCS?
+Everytime you make a change, whether it's adding a sentence to a document or altering a line of code, the VCS records and saves the outcome
+VCS (Version Control System) is a tool that helps ou track, manage, and control changes made to files (especially source code) over time
+
+> Why VCS?
+1) Backup and Restore : Files are safe against accidental losses and mistakes
+2) Collaboration : Multiple people can work on the same project simultaneously
+3) Branching and Merging : Users can diverge from the main base of code, experiment and then bring changes back in line without losing work.
+4) Tracking Changes : You can see specific changes made and by whom.
+
+> mac : brew install git (install homebrew)
+  linux : sudo yum install git
+  windows : gitbash
+
+> Configure Git with Username and Email
+$ git config --global user.name "tanniiiyaa"
+$ git config --global user.email natniya7@gmail.com
+$ git config --list
+
+> Repository 
+A storage location for your project
+It contains Files and Change history
+Can be --- 
++ Local Repository : A local repository is the Git repository on your own computer.
+Exists on your laptop/PC.
+Created using $ git init.
+works offline.
+
++ Remote Repository : A remote repository is a Git repository stored on a server (like GitHub, GitLab, Bitbucket).
+Exists on the cloud/server.
+Used for Backup and Collaboration.
+Accessed via internet
+Common remote name : origin
+
+> How Local & Remote Work Together?
+$ git add .
+$ git commit -m "Initial commit"   # local
+$ git push origin main             # send to remote
+$ git pull origin main             # get updates from remote
+
+> Snapshot-Based Versioning
+In Git, every commit is a snapshot of the entire project at that moment, not just a list of changed files.
+Git saves how the project looks at that point in time.
+When you commit: Git takes a snapshot of all tracked files
+If a file didn’t change, Git: Reuses the previous snapshot (no extra space)
+This makes Git fast and efficient.
+Commit 1 → fileA, fileB
+Commit 2 → fileA (changed), fileB (same)
+Git stores:
+New snapshot for fileA
+Reuses old snapshot for fileB
+
+> History Tracking
+History tracking is Git’s ability to record and maintain a timeline of all changes made to a repository.
+What Git Tracks
+
+- For every commit, Git records:
+Who made the change
+When it was made
+What was changed
+Commit message
+Unique commit ID (SHA)
+
+- Commands used :
+$ git log        # full history
+$ git log --oneline
+$ git blame file.txt
+$ git show
+
+> Git Architecture
+Git internally works with 4 main areas
+Working Directory → Staging Area → Local Repository → Remote Repository
+
+1) Working Directory
+The actual project folder on your system
+Where files physically exists and where you write code, edit files and delete files
+- File states in WD
++ Untracked : Git doesn’t know the file
++ Modified : File changed but not staged
++ Tracked : File already under Git
+
+2) Staging Area
+temporary holding place where you choose which changes will be included in the next commit.
+With staging, you decide what to commit and you can create clean and meaningful commits
+Lets you choose exactly what goes into a commit
+$ git add .  (WD -> SA)
+$ git restore --staged file.txt (remove from staging)
+$ git status
+$ git diff
+$ git diff --staged
+$ git add -p (partial staging / useful when one file has multiple changes and you want separate commits)
+
+3) Local Repository (.git)
+.git is a hidden folder inside your project which is Git's brain
+inside .git, Git stores - commits, branches, history and snapshots
+
+Edit File ----- Changes not saved
+git add ------- Select what to save
+git commit ------ Save Snapshot (stored inside .git)
+
+4) Remote Repository
+A copy of your local repository, stored on the internet
+
+> git push 
+before push : Commits exist only on your computer and nobody else can see them
+$ git push origin main
+after push : Your commits are copied to GitHub and team can pull the changes, review and deploy them
+
+Edit file
+   ↓
+git add
+   ↓
+git commit   → Saved in .git (local repo)
+   ↓
+git push     → Copied to GitHub (remote repo)
+
+Edit files
+   ↓
+Working Directory
+   ↓ git add
+Staging Area
+   ↓ git commit
+Local Repository (.git)
+   ↓ git push
+Remote Repository (GitHub)
+
+git init              # new repo
+git clone <url>       # existing repo
+code app.js           # amke changes 
+git status            # check the status
+git add app.js or git add .     # Moves changes to Staging Area
+git commit -m "Add login functionality"  # Creates a snapshot and Saves to Local Repository
+git push origin main    # Sends commits to Remote Repository
+git pull origin main    # get latest changes from others
+
+
+
+
+
