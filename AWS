@@ -128,3 +128,120 @@ The Hybrid Cloud combines the features of both public and private clouds. It all
 + Example Use Case : A company may store customer data on a private cloud for security reasons while hosting its web application on a public cloud to handle unpredictable traffic spikes.
 + Implementation : Hybrid clouds can be implemented using services like AWS Outposts or Azure Arc, which enable smooth integration between public and private environments.
 
+-- HOW AWS CHARGE / PRICING --
+AWS follows as pay-as-you-go pricing model, meaning you pay only for what you use, with no upfront cost or long-term commitment
+1) Pay-As-You-Go (On-Demand)
+Pay per second /hour/GB/request
+No contacts
+EC2 : charged per second while instance is running
+S3 : charged per GB stored per month
+
+2) Saving Plans
+Commit to 1-3 years of consistent usage
+Get up to ~66% discount
+
+3) AWS Free Tier
+AWS offers a 12-month Free Tier:
+EC2: 750 hrs/month (t2.micro)
+S3: 5 GB storage
+Lambda: 1 million requests/month
+Exceeding limits → charges apply
+
+- 3 pricing fundamental models
+1) Compute (CPU utilization)
+2) Storage (volume/ storage used)
+3) Data Transfer (Download or upload from outside / How much data is served from the server / Network Utilization)
+
+
+-- AWS GLOBAL INFRASTRUCTURE --
+1) AWS Availability Zones : 120
+2) AWS Geographic Regions : 38
+
+- Minimum and Maximum AZs in a Region
+Minimum AZs in a Region: 2
+Maximum AZs in a Region: 6 
+AWS guarantees at least two AZs in every Region for high availability.
++ Example
+  ap-south-1 (Mumbai) → 3 AZs
+  us-east-1 (N. Virginia) → 6 AZs
+
+AWS Global Infrastructure
+   ↓
+Region
+   ↓
+Availability Zone (AZ)
+   ↓
+One or more Data Centers
+
+-- AWS REGIONS --
+A Region is a distinct geographical area where AWS operates its data centers. Each Region is independent to ensure better control and performance for users in that area.
+Each Region provides localized services to minimize latency and meet compliance requirements.
+All AWS Regions are connected to each other through AWS’s own private global network, not the public internet.
+AWS has a high-speed, fiber-optic private backbone
+with up to 100+ Gbps within Regions
+
+- Why AWS Uses Global Regions?
+AWS distributes its infrastructure across various Regions for several reasons:
+1) Performance Optimization: Hosting data closer to users reduces latency.
+Example: Indian customers accessing services in the Mumbai Region experience better speeds compared to using services hosted in the US.
+2) Compliance: Some industries or governments require data to stay within specific countries or Regions.
+Example: Government projects often mandate local data storage.
+3) Disaster Recovery: Data redundancy across Regions minimizes risks from natural disasters or technical failures.
+Example: Data stored in Mumbai can be backed up in another Region, such as Singapore.
+4) Flexibility: Businesses can choose Regions based on their specific needs, such as cost-effectiveness or proximity.
+
+-- AWS AVAILABILITY ZONES --
+An Availability Zone is an isolated location within an AWS Region. 
+Each AZ consists of one or more data centers that operate independently but are interconnected to other AZs within the same Region.
+
+- Characteristics 
+1) Isolation: Each AZ is designed to operate independently to minimize the risk of failure spreading across zones.
+2) Redundancy: Multiple AZs ensure that if one zone experiences an issue, others can continue to function.
+3) Interconnection: AZs within a Region are connected via high-speed, low-latency networks to facilitate efficient data replication and communication.
+
+- Why Does AWS Use Availability Zones?
+1) Disaster Recovery : AZs are designed to handle localized failures such as power outages or natural disasters.
+Example: If a power failure affects one AZ in Mumbai, resources in other AZs in the same Region will remain operational.
+2) High Availability: By distributing applications across multiple AZs, businesses can ensure minimal downtime.
+                       Example: A web application hosted across three AZs will continue to serve users even if one AZ is temporarily unavailable.
+3) Fault Tolerance: Each AZ is connected to independent power sources and networks, reducing the likelihood of a single point of failure.
+4) Performance Optimization: High-speed connections between AZs enable efficient data synchronization and load balancing.
+
+- How Are Availability Zones Structured?
+Within an AWS Region, AZs are geographically separated but close enough to maintain low-latency connectivity. 
+1) Distance Between AZs: Typically 60-100 kilometers (37-62 miles) apart to prevent simultaneous impact from disasters.
+2) Independent Power Supply: Each AZ has its own power source and backup generators.
+3) Independent Networking: AZs are connected to separate network grids, ensuring continued connectivity even if one network fails.
+
+- Example: Mumbai Region
+The Mumbai Region has multiple Availability Zones, strategically placed to ensure:
+High availability for Indian users.
+Compliance (data security) with data residency requirements.
+Reliable disaster recovery options.
+
+- Best Practices?
+1) Deploy applications across multiple AZs within the Region to ensure redundancy and fault tolerance.
+2) Use services like Elastic Load Balancing to distribute traffic across AZs.
+
+- Benefits of Using Multiple Availability Zones?
+1) Reduced Latency (decreasing the time delay it takes for data to travel from s->d): Low-latency connections (faster response time) between AZs ensure real-time data replication and high performance.
+2) Improved Reliability: Applications distributed across AZs can handle failures without impacting end users.
+3) Enhanced Security: Data transfers between AZs are encrypted, ensuring secure communication.
+4) Compliance: AZs help meet regulatory requirements by offering localized data storage options.
+
+-- LOCAL ZONES --
+> helps improve the performance and availability of websites and applications for users all around the world.
+> think of it as small data centers or points of presence strategically located in various cities and regions worldwide.
+> These Edge locations are separate from AWS regions and are designed to bring content and services closer to end users.
+> When you access a website or application hosted on AWS, your requests are usually directed to the nearest AWS Edge location. 
+> These Edge locations act as a cache or temporary  storage for frequently accessed content, such as images, videos, and other static files.
+> This means that instead of your requests traveling long distances to the main AWS servers in a region, the content can be delivered from the nearby Edge location, reducing the time it takes for the content to reach you.
+
+- Main Benefits
+1) Improved Performance : By caching content closer to users, AWS Edge locations reduce the latency or delay in delivering content. This results in faster loading times and a better user experience.
+2) Enhanced Availability: If the main AWS servers in a region experience temporary issues or are temporarily unreachable, the content stored in Edge locations can still be served to users. This helps ensure that websites and applications remain accessible even during disruptions.
+3) Global Content Delivery: With Edge locations spread across different cities and regions worldwide, AWS can efficiently deliver content to users in different geographic locations. This helps businesses reach and engage with their global audience effectively.
+
++  AWS Edge locations are like mini data centers strategically placed around the world to deliver content and services faster to users. 
++  They help improve performance, increase availability, and enable global content delivery for websites and applications hosted on AWS.
+
