@@ -93,3 +93,38 @@ When choosing a cloud service, consider the following:
 1) What is this service managing on my behalf?
 2) What responsibilities do I have?
 3) Does it align with my project requirements?
+
+
+-- TYPES OF CLOUD MODELS --
+Cloud computing has transformed how businesses manage resources by offering flexible and scalable solutions. 
+There are three primary types of cloud models:
+Public Cloud
+Private Cloud
+Hybrid Cloud
+
+1) Public Cloud
+The Public Cloud is a cloud environment accessible over the internet, allowing anyone to create and manage resources. It is hosted and maintained by third-party providers and is available to the general public.
+
++ Key Features : Resources are shared among multiple users.
+                 Accessible via the internet.
+                 Cost-effective and highly scalable.
++ Example Use Case : A startup can use the public cloud to host its website or application without worrying about infrastructure management. Resources can be scaled up or down based on demand
++ Examples : AWS , GCP, Azure
+
+2) Private Cloud
+The Private Cloud is a cloud environment dedicated to a single organization. It provides enhanced security and control, making it ideal for businesses with strict compliance or regulatory requirements.
+
++ Key Features : Exclusive access to resources
+                 Hosted on-premises or in a dedicated data center
+                 Customizable to meet specific organizational needs
++ Example Use Case : A financial institution that handles sensitive customer data may opt for a private cloud to ensure data remains within its control and meets compliance standards.
++ Implementation : Private clouds can be set up using tools like OpenStack. For instance, an organization might create virtual machines (VMs) within its private network, accessible only to employees through a secure connection.
+
+3) Hybrid Cloud
+The Hybrid Cloud combines the features of both public and private clouds. It allows organizations to leverage the benefits of both models by seamlessly integrating their private cloud with a public cloud environment.
+
++ Key Features : Flexibility to run sensitive workloads on a private cloud while utilizing the public cloud for less critical tasks.
+                 Enhanced scalability and cost-efficiency.
++ Example Use Case : A company may store customer data on a private cloud for security reasons while hosting its web application on a public cloud to handle unpredictable traffic spikes.
++ Implementation : Hybrid clouds can be implemented using services like AWS Outposts or Azure Arc, which enable smooth integration between public and private environments.
+
