@@ -1,0 +1,17 @@
+###Traditional Vs Cloud Computing
+
+#### Understanding Traditional Infrastructure Challenges
+
+Before the rise of cloud computing, businesses relied heavily on traditional infra to host their applications.
+Setting up a simple website involved significant costs and complexities.
+1) **Server Purchase:** You had to purchase a physical server costing around ₹50,000 or more.
+The server needed a secure and cold environment, often requiring renting a dedicated space.
+2) **Maintenance Costs:** Continuous power supply and cooling systems were essential.
+You needed to hire IT professionals to manage the server, handle hardware failures (like hard disk or RAM issues), and perform regular maintenance.
+3) **Over or Underutilization:** If you anticipated 10,000 users but only received 10, the investment in a high-capacity server was wasted.
+Conversely, if the number of users exceeded expectations, the server would crash due to overload, resulting in downtime and a poor user experience.
+4) **Inflexibility:** Scaling up or down based on demand was cumbersome, leading to either over-provisioning or under-provisioning.
+
+Cloud Computing revolutionizes how infra is managed, offering a solution to all the challenges of traditional setups :
+
+####Cloud Computing 
